@@ -1,0 +1,259 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: 'Play Chickens';
+  src: url('./fonts/Play Chickens.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9945ff;
+  font-family: 'Play Chickens', sans-serif;
+  letter-spacing: 2px;
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 0;
+  overflow-x: hidden;
+}
+.Modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 30px;
+  max-width: 400px;
+  width: 90%;
+  border-radius: 10px;
+  z-index: 999;
+  outline: none;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+.about-button {
+  padding: 7px 14px;
+  font-family: 'Play Chickens';
+  font-size: 1.2rem;
+  background-color: #9945ff;
+  color: white;
+  border: 3px solid black;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.about-button:hover {
+  background-color: #000508;
+}
+.Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+.social-links {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  gap: 30px; /* Adjust gap for better spacing */
+  padding: 5px 0; /* Adjust padding as needed */
+  background-color: transparent;
+  z-index: 10; /* Ensure it’s above other elements */
+}
+
+/* Style for individual social icons */
+.social-icon {
+  width: 60px; /* Adjust icon size if needed */
+  height: 60px;
+  border: 2px solid white;
+  border-radius: 50%; /* Circular icons */
+  transition: transform 0.2s ease;
+}
+
+/* Hover effect for icons */
+.social-icon:hover {
+  transform: scale(1.1);
+}
+/* Main app container */
+.App {
+  position: absolute;
+  text-align: center;
+  transform: translate(-27%, -65%);
+  width: 90%;
+  max-width: 650px;
+  padding: 40px;
+  background-color: #f7faff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #000508;
+  color: #f7faff;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 10px;
+}
+.image-prop {
+  position: relative;
+  transform: translate(-100%, 72%);
+  width: 300px; /* Adjust size as needed */
+  z-index: 5;
+  pointer-events: none;
+}
+.title {
+  color: #f7faff;
+  font-weight: bold;
+}
+
+.wallet-button {
+  background-color: #f7faff;
+  color: #9945ff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+.last-winner {
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+.wallet-button:hover {
+  background-color: #ff6b6b;
+  color: #f7faff;
+}
+
+.timer {
+  font-size: 1.5rem;
+  font-family: 'Play Chickens', sans-serif;
+  color: white;
+  background-color: #000508;
+  margin: 20px 0;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  animation: flash 1s infinite alternate; /* Flashing animation */
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.wheel-container {
+  position: relative;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Wheel container */
+.wheel {
+  width: 80%; /* Adjusts with screen size */
+  max-width: 500px; /* Ensures a max width */
+  position: relative;
+  transform: rotate(-47deg); /* Aligns with overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.total-pot-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  pointer-events: none; /* Ensures it doesn’t interfere with interactions */
+  z-index: 300;
+}
+/* Overlay image */
+.overlay {
+  position: absolute;
+  width: 250%; /* Matches the width of the wheel */
+  max-width: 445px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  pointer-events: none; /* Prevents interaction interference */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .header {
+    font-size: 0.75rem;
+  }
+  .wheel {
+    width: 90%; /* Make the wheel slightly larger on smaller screens */
+    max-width: 350px; /* Reduce max width for mobile */
+  }
+  .total-pot-overlay {
+    font-size: 1rem;
+  }
+  .overlay {
+    width: 180%; /* Scale down overlay on smaller screens */
+    max-width: 330px; /* Reduce overlay max width for mobile */
+    transform: translate(-50%, -50%) rotate(0deg); /* Centered without extra rotation */
+  }
+  .App {
+    transform: translate(-30%, -60%);
+  }
+  .image-prop {
+    transform: translate(-100%, 170%);
+    width: 150px;
+  }
+}
+
+.overlay img {
+  width: 100%;
+  height: auto;
+}
+.join-button {
+  width: 236px;
+  height: 160px;
+  background-image: url('https://i.imgur.com/TuMlv5w.png'); /* Set your image path */
+  background-size: contain; /* Scale image while keeping aspect ratio */
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #f7faff;
+  font-size: 3rem;
+  font-family: 'Play Chickens', sans-serif;
+  font-weight: bold;
+  border: none;
+  letter-spacing: 3px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0; /* Remove padding to prevent overflow */
+}
